@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiToDoSqlite.Views.TodoListPage"
+             Title="Todo">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="OnItemAdded" Text="+" IconImageSource="plus.png">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="20,0,0,0" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <Label HorizontalOptions="StartAndExpand" Text="{Binding Name}"/>
+                            <Image HorizontalOptions="End" IsVisible="{Binding Done}" Source="check.png"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
